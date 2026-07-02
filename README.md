@@ -49,10 +49,28 @@ churn-mlops/
 └── README.md
 
 ## 🚦 Project Status
+## 📊 Phase 1 Results — EDA & Data Preprocessing
+
+### Key Findings from EDA
+- **26.6%** of customers churned — dataset is imbalanced, will be addressed in modeling phase
+- **Contract type** is a strong churn predictor — month-to-month customers churn at a significantly higher rate (~75%) compared to one year (~11%) and two year (~3%) contracts
+- **Tenure** is inversely related to churn — customers in their first 10 months are at highest risk, churn drops significantly after 12 months
+- **Monthly charges** are higher for churned customers — median of $80 vs $65 for retained customers, suggesting pricing is a key driver of attrition
+- **TotalCharges** is strongly correlated with tenure (0.83) — longer customers naturally accumulate higher total charges
+
+### Data Preprocessing Steps
+- Converted `TotalCharges` from string to numeric and handled 11 null values
+- Dropped `customerID` (non-predictive identifier)
+- Encoded `Churn` target variable from Yes/No to 1/0
+- Applied `pd.get_dummies()` encoding on 15 categorical columns — expanded from 20 to 31 columns
+- Applied `StandardScaler` on `tenure`, `MonthlyCharges`, and `TotalCharges`
+- Split data into 80/20 train/test sets (5,625 training / 1,407 test samples)
+
+## 🚦 Project Status
 🚧 **In Progress**
 
 - [x] Project structure and environment setup
-- [ ] Phase 1: Data cleaning and exploratory data analysis
+- [x] Phase 1: Data cleaning and exploratory data analysis
 - [ ] Phase 2: Model training and evaluation
 - [ ] Phase 3: Experiment tracking with MLflow
 - [ ] Phase 4: API development with FastAPI
