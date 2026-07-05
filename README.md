@@ -1,10 +1,10 @@
 # Customer Churn Prediction (End-to-End MLOps Pipeline)
 
 ## 📌 Overview
-This project is an end-to-end machine learning system that predicts customer churn for a telecom business. Beyond just building a predictive model, it covers the complete ML lifecycle from data exploration and cleaning, to model training and experiment tracking, to deployment as a production-ready API. The goal is to demonstrate real-world MLOps practices: containerization, CI/CD automation, and model monitoring.
+This project is an end-to-end machine learning system that predicts customer churn for a telecom business. Beyond just building a predictive model, it covers the complete ML lifecycle from data exploration and cleaning to model training and experiment tracking to deployment as a production-ready API. The goal is to demonstrate real-world MLOps practices: containerization, CI/CD automation, and model monitoring.
 
 ## 🎯 Problem Statement
-Customer churn means when a customer stops using a company's service. This is one of the most costly problems telecom businesses face. Acquiring a new customer is significantly more expensive than retaining an existing one. This project builds a machine learning system that identifies customers at high risk of churning, enabling the business to take proactive retention action before it's too late.
+Customer churn occurs when a customer stops using a company's service. This is one of the most costly problems telecom businesses face. Acquiring a new customer is significantly more expensive than retaining an existing one. This project builds a machine learning system that identifies customers at high risk of churning, enabling the business to take proactive retention action before it's too late.
 
 ## 🗂️ Dataset
 - **Source:** [Telco Customer Churn Dataset (Kaggle)](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
@@ -52,9 +52,9 @@ churn-mlops/
 ## 📊 Phase 1 Results — EDA & Data Preprocessing
 
 ### Key Findings from EDA
-- **26.6%** of customers churned — dataset is imbalanced, will be addressed in modeling phase
-- **Contract type** is a strong churn predictor — month-to-month customers churn at a significantly higher rate (~75%) compared to one year (~11%) and two year (~3%) contracts
-- **Tenure** is inversely related to churn — customers in their first 10 months are at highest risk, churn drops significantly after 12 months
+- **26.6%** of customers churned — the dataset is imbalanced, which will be addressed in the modelling phase
+- **Contract type** is a strong churn predictor — month-to-month customers churn at a significantly higher rate (~75%) compared to one-year (~11%) and two-year (~3%) contracts
+- **Tenure** is inversely related to churn — customers in their first 10 months are at highest risk; churn drops significantly after 12 months
 - **Monthly charges** are higher for churned customers — median of $80 vs $65 for retained customers, suggesting pricing is a key driver of attrition
 - **TotalCharges** is strongly correlated with tenure (0.83) — longer customers naturally accumulate higher total charges
 
