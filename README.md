@@ -66,12 +66,44 @@ churn-mlops/
 - Applied `StandardScaler` on `tenure`, `MonthlyCharges`, and `TotalCharges`
 - Split data into 80/20 train/test sets (5,625 training / 1,407 test samples)
 
+## 🤖 Phase 2 Results — Model Training & Evaluation
+
+### Model Comparison
+| Model | Accuracy | AUC Score |
+|---|---|---|
+| Logistic Regression | 78% | 0.83 |
+| Random Forest | 77% | 0.82 |
+| XGBoost | 79% | 0.83 |
+
+### Hyperparameter Tuning
+XGBoost was selected as the best performing model and tuned using GridSearchCV across 27 parameter combinations with 5-fold cross validation (135 fits total).
+
+**Best Parameters Found:**
+| Parameter | Value |
+|---|---|
+| learning_rate | 0.1 |
+| max_depth | 3 |
+| n_estimators | 100 |
+
+### Final Model Performance
+| Metric | No Churn | Churn |
+|---|---|---|
+| Precision | 0.83 | 0.65 |
+| Recall | 0.90 | 0.48 |
+| F1-Score | 0.86 | 0.55 |
+| **Overall Accuracy** | | **79%** |
+| **AUC Score** | | **0.852** |
+
+### Known Limitations
+- Model recall for churners (48%) is lower than ideal due to class imbalance (73.4% non-churn vs 26.6% churn)
+- Future improvement: SMOTE oversampling or class weight adjustment to improve minority class detection
+
 ## 🚦 Project Status
 🚧 **In Progress**
 
 - [x] Project structure and environment setup
 - [x] Phase 1: Data cleaning and exploratory data analysis
-- [ ] Phase 2: Model training and evaluation
+- [x] Phase 2: Model training and evaluation
 - [ ] Phase 3: Experiment tracking with MLflow
 - [ ] Phase 4: API development with FastAPI
 - [ ] Phase 5: Dockerization
@@ -80,7 +112,6 @@ churn-mlops/
 - [ ] Phase 8: Final documentation
 
 ## ⚙️ How to Run
-*Instructions will be added as each phase is completed.*
 
 ```bash
 # Clone the repository
@@ -96,10 +127,19 @@ pip install -r requirements.txt
 ```
 
 ## 📈 Results
-*Model performance metrics and comparisons will be added after Phase 2.*
+| Phase | Status | Key Metric |
+|---|---|---|
+| EDA & Preprocessing | ✅ Complete | 30 features, 7032 records |
+| Model Training | ✅ Complete | XGBoost AUC: 0.852 |
+| MLflow Tracking | 🚧 In Progress | - |
+| API Deployment | ⬜ Pending | - |
+| Docker | ⬜ Pending | - |
+| CI/CD | ⬜ Pending | - |
 
 ## 🔍 Key Learnings
-*To be added as the project progresses.*
+- Contract type and tenure are the strongest predictors of customer churn
+- Class imbalance significantly impacts recall on minority classes and must be addressed in production models
+- GridSearchCV improved AUC from 0.83 to 0.852 through systematic hyperparameter tuning
 
 ## 📬 Contact
 Dr Sarmela Raja Sekaran
